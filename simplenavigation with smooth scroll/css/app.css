@@ -1,0 +1,248 @@
+        /* css variables */
+        
+         :root {
+            --textFormat: upperCase;
+            --effect: all .8s linear;
+            --space: .1rem;
+            --weight: 600;
+            /* start default theme */
+            --primaryCol: #ffff18;
+            --secondaryCol: rgb(127, 19, 228);
+            --colorOne: #ffffff;
+            --colorTwo: #000000;
+            --colorThree: #808080;
+            /* end default theme */
+        }
+        /* global css */
+        
+        * {
+            font-family: 'Montserrat', sans-serif;
+            list-style: none!important;
+            text-decoration: none!important;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 100%;
+            scroll-behavior: smooth;
+        }
+        
+        */
+        /* headings */
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            text-transform: var(--textFormat);
+        }
+        /* start preloader */
+        
+        .preloadContainer {
+            background: var(--colorTwo);
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 9999;
+        }
+        
+        .preloader {
+            background-image: url(../img/preloader/preloader.png);
+            background-repeat: no-repeat;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        /* end preloader */
+        /* start navigation bar or header section  */
+        
+        .navigationComp {
+            background-color: var(--secondaryCol);
+            box-shadow: 0px 2px 5px 3px #aaa7a7;
+        }
+        
+        .navigationComp .row {
+            align-items: center;
+        }
+        
+        .navigationComp .container {
+            position: relative;
+        }
+        
+        .brandContainer a {
+            display: block;
+        }
+        
+        .brandContainer img {
+            width: 2rem;
+            height: 2rem;
+        }
+        
+        .navigationComp nav {
+            justify-content: space-between;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navigationComp nav a {
+            color: var(--colorOne);
+            letter-spacing: var(--space);
+            text-transform: var(--textFormat);
+            font-size: .9rem;
+            padding: 1rem;
+            font-weight: var(--weight);
+            transition: var(--effect);
+            -webkit-transition: var(--effect);
+            -moz-transition: var(--effect);
+            -ms-transition: var(--effect);
+            -o-transition: var(--effect);
+        }
+        
+        .navigationComp nav a.active,
+        .navigationComp nav a:hover {
+            color: var(--primaryCol);
+        }
+        /* start hamburger */
+        
+        .hamburger {
+            width: 3.5rem;
+            height: 3.5rem;
+            background-color: var(--primaryCol);
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            position: absolute;
+            top: 3%;
+            right: 1rem;
+            display: none;
+        }
+        
+        .circle {
+            height: 100%;
+            width: 100%;
+            position: relative;
+            text-align: center;
+            transform: translate(-13px);
+            cursor: pointer;
+        }
+        
+        .circle.close .top {
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            top: 20px;
+        }
+        
+        .circle.close .center,
+        .circle.close .bottom {
+            transform: rotate(-45deg);
+            top: 20px;
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+        }
+        
+        .hamburger .line {
+            width: 80%;
+            background: var(--secondaryCol);
+            display: inline-block;
+            height: 4px;
+            position: absolute;
+            transition: all .5s ease;
+            -webkit-transition: all .5s ease;
+            -moz-transition: all .5s ease;
+            -ms-transition: all .5s ease;
+            -o-transition: all .5s ease;
+            border-radius: 8px;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            -ms-border-radius: 8px;
+            -o-border-radius: 8px;
+        }
+        
+        .top {
+            top: 12px;
+        }
+        
+        .center {
+            top: 20px;
+        }
+        
+        .bottom {
+            top: 28px;
+        }
+        /* end hamburger */
+        /* end navigation bar or header section  */
+        /* sections for testing */
+        
+        section {
+            height: 100vh;
+            color: var(--colorOne);
+            text-transform: var(--effect);
+            letter-spacing: .1rem;
+            font-size: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        section:nth-child(odd) {
+            background: red;
+        }
+        
+        section:nth-child(even) {
+            background: blue;
+        }
+        /* media queries */
+        /* Small devices (landscape (phones), 576px and up (tablets) */
+        
+        @media(min-width: 992px) {
+            .navigationComp nav {
+                display: flex!important;
+            }
+        }
+        
+        @media(min-width: 320px) and (max-width: 991.98px) {
+            html {
+                font-size: 80%;
+            }
+            .navigationComp {
+                padding: .3rem 0;
+            }
+            .navigationComp nav {
+                flex-direction: column;
+                animation: backInLeft;
+                animation-duration: 3s;
+                /* display: none; */
+            }
+            .brandContainer {
+                padding: .8rem;
+            }
+            .navigationComp nav a {
+                width: 100%;
+                transition: var(--effect);
+                -webkit-transition: var(--effect);
+                -moz-transition: var(--effect);
+                -ms-transition: var(--effect);
+                -o-transition: var(--effect);
+            }
+            .navigationComp nav a:hover {
+                background: var(--primaryCol);
+                color: var(--secondaryCol);
+            }
+            .hamburger {
+                display: block;
+            }
+        }
